@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import 'country_dropdown.dart';
+import 'custom_appbar.dart';
 
 class TopInfo extends StatelessWidget {
   const TopInfo({Key? key}) : super(key: key);
@@ -71,25 +72,7 @@ class TopInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () => Scaffold.of(context).openDrawer(),
-                  child: const Icon(
-                    Icons.sort_rounded,
-                    color: Colors.white,
-                  ),
-                ),
-                const InkWell(
-                  onTap: null,
-                  child: Icon(
-                    Icons.notifications_none,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
+            const CustomAppBar(),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
