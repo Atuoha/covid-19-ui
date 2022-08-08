@@ -16,11 +16,11 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int currentIndex = 0;
-  final _pages =  [
-     HomeScreen(),
-    const StatisticsScreen(),
-    const DocumentScreen(),
-    const InformationScreen(),
+  final _pages = const [
+    HomeScreen(),
+    StatisticsScreen(),
+    DocumentScreen(),
+    InformationScreen(),
   ];
 
   void _changeIndex(index) {
@@ -51,7 +51,7 @@ class _BottomNavState extends State<BottomNav> {
         items: [
           BottomNavigationBarItem(
             icon: Container(
-              padding: const EdgeInsets.symmetric(horizontal:15,vertical:5),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: currentIndex == 0 ? accentColor : Colors.transparent,
@@ -62,7 +62,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           BottomNavigationBarItem(
             icon: Container(
-              padding: const EdgeInsets.symmetric(horizontal:15,vertical:5),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: currentIndex == 1 ? accentColor : Colors.transparent,
@@ -73,7 +73,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           BottomNavigationBarItem(
             icon: Container(
-              padding: const EdgeInsets.symmetric(horizontal:15,vertical:5),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: currentIndex == 2 ? accentColor : Colors.transparent,
@@ -84,7 +84,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           BottomNavigationBarItem(
             icon: Container(
-              padding: const EdgeInsets.symmetric(horizontal:15,vertical:5),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: currentIndex == 3 ? accentColor : Colors.transparent,
