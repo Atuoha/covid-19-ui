@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import '../constants/colors.dart';
 
 class MyCountryStats extends StatefulWidget {
@@ -40,13 +40,13 @@ class _MyCountryStatsState extends State<MyCountryStats> {
 
   Widget kContainer(
     String title,
-    int number,
+    String number,
     Color bgColor,
     BuildContext context,
     Size size,
   ) {
     return Padding(
-      padding: const EdgeInsets.only(right:0),
+      padding: const EdgeInsets.only(right: 0),
       child: Container(
         height: 100,
         width: size == Size.big
@@ -70,7 +70,7 @@ class _MyCountryStatsState extends State<MyCountryStats> {
               ),
               const SizedBox(height: 30),
               Text(
-                number.toString(),
+                number,
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
@@ -83,6 +83,8 @@ class _MyCountryStatsState extends State<MyCountryStats> {
       ),
     );
   }
+
+  NumberFormat numberFormat = NumberFormat.decimalPattern();
 
   @override
   Widget build(BuildContext context) {
@@ -104,14 +106,14 @@ class _MyCountryStatsState extends State<MyCountryStats> {
           children: [
             kContainer(
               'Affected',
-              affectedStats[_currentIndex],
+              numberFormat.format(affectedStats[_currentIndex]),
               affectedBg,
               context,
               Size.big,
             ),
             kContainer(
               'Death',
-              deathStats[_currentIndex],
+              numberFormat.format(deathStats[_currentIndex]),
               deathBg,
               context,
               Size.big,
@@ -124,21 +126,21 @@ class _MyCountryStatsState extends State<MyCountryStats> {
           children: [
             kContainer(
               'Recovered',
-              recoveredStats[_currentIndex],
+              numberFormat.format(recoveredStats[_currentIndex]),
               recoveredBg,
               context,
               Size.small,
             ),
             kContainer(
               'Active',
-              activeStats[_currentIndex],
+              numberFormat.format(activeStats[_currentIndex]),
               activeBg,
               context,
               Size.small,
             ),
             kContainer(
               'Serious',
-              seriousStats[_currentIndex],
+              numberFormat.format(seriousStats[_currentIndex]),
               seriousBg,
               context,
               Size.small,
@@ -146,8 +148,7 @@ class _MyCountryStatsState extends State<MyCountryStats> {
           ],
         ),
 
-      //DAILY NEW CASES CHART
-
+        //DAILY NEW CASES CHART
       ],
     );
   }

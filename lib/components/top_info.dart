@@ -93,7 +93,7 @@ class TopInfo extends StatelessWidget {
               'Are you feeling sick?',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 25,
+                fontSize: 23,
                 color: Colors.white,
               ),
             ),
