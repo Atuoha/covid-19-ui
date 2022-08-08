@@ -12,13 +12,13 @@ class MyCountryStats extends StatefulWidget {
 enum Size { big, small }
 
 class _MyCountryStatsState extends State<MyCountryStats> {
-  var _stats = ['Total', 'Today', 'Yesterday'];
+  final _stats = ['Total', 'Today', 'Yesterday'];
   var _currentIndex = 0;
-  var _affectedStats = [20009, 345, 897];
-  var _deathStats = [87445, 9897, 1765];
-  var _recoveredStats = [4323, 897, 673];
-  var _activeStats = [3456, 8567, 345];
-  var _seriousStats = [3534, 6454, 8364];
+  var affectedStats = [20009, 345, 897];
+  var deathStats = [87445, 9897, 1765];
+  var recoveredStats = [4323, 897, 673];
+  var activeStats = [3456, 8567, 345];
+  var seriousStats = [3534, 6454, 8364];
 
   Widget kText(String title, int index) {
     return GestureDetector(
@@ -104,14 +104,14 @@ class _MyCountryStatsState extends State<MyCountryStats> {
           children: [
             kContainer(
               'Affected',
-              _affectedStats[_currentIndex],
+              affectedStats[_currentIndex],
               affectedBg,
               context,
               Size.big,
             ),
             kContainer(
               'Death',
-              _deathStats[_currentIndex],
+              deathStats[_currentIndex],
               deathBg,
               context,
               Size.big,
@@ -124,27 +124,30 @@ class _MyCountryStatsState extends State<MyCountryStats> {
           children: [
             kContainer(
               'Recovered',
-              _recoveredStats[_currentIndex],
+              recoveredStats[_currentIndex],
               recoveredBg,
               context,
               Size.small,
             ),
             kContainer(
               'Active',
-              _activeStats[_currentIndex],
+              activeStats[_currentIndex],
               activeBg,
               context,
               Size.small,
             ),
             kContainer(
               'Serious',
-              _seriousStats[_currentIndex],
+              seriousStats[_currentIndex],
               seriousBg,
               context,
               Size.small,
             )
           ],
-        )
+        ),
+
+      //DAILY NEW CASES CHART
+
       ],
     );
   }
