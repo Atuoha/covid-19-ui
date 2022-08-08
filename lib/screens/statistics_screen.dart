@@ -2,6 +2,7 @@ import 'package:covid19_dashboard/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../components/custom_appbar.dart';
+import '../components/statistics_type.dart';
 
 class StatisticsScreen extends StatelessWidget {
   const StatisticsScreen({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class StatisticsScreen extends StatelessWidget {
                 color:Colors.white,
               ),
             ),
-            
+            StatisticsType()
           ],
         ),
       ),
