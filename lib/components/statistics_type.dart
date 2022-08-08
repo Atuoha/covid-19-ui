@@ -1,3 +1,5 @@
+import 'package:covid19_dashboard/stats_screens/global.dart';
+import 'package:covid19_dashboard/stats_screens/my_country.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
@@ -11,7 +13,10 @@ class StatisticsType extends StatefulWidget {
 
 class _StatisticsTypeState extends State<StatisticsType> {
   var statsType = ['My Country', 'Global'];
-  var statsScreens = [];
+  var statsScreens = const [
+    MyCountryStats(),
+    GlobalStats(),
+  ];
   var _currentStatIndex = 0;
 
   Widget kContainer(String title, int index, BuildContext context) {
@@ -63,13 +68,7 @@ class _StatisticsTypeState extends State<StatisticsType> {
               ),
             ),
           ),
-          // SizedBox(
-          //   child: Expanded(
-          //     child: Column(
-          //       children: [],
-          //     ),
-          //   ),
-          // )
+          Container(child: statsScreens[_currentStatIndex])
         ],
       ),
     );
