@@ -36,10 +36,42 @@ class _MyCountryStatsState extends State<MyCountryStats> {
     );
   }
 
-  Widget kContainerBig(String title, int number, Color bgColor){
-    return Container(
-
-      decoration: BoxDecoration(),
+  Widget kContainerBig(
+      String title, int number, Color bgColor, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(6.0),
+      child: Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width / 2.4,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: bgColor,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 17
+                ),
+              ),
+              const SizedBox(height: 30),
+              Text(
+                number.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -58,11 +90,22 @@ class _MyCountryStatsState extends State<MyCountryStats> {
           ],
         ),
         const SizedBox(height: 10),
-        Row(children: [
-          Container(
-
-          ),
-        ],)
+        Row(
+          children: [
+            kContainerBig(
+              'Affected',
+              affected_stats[_currentIndex],
+              affectedBg,
+              context,
+            ),
+            kContainerBig(
+              'Death',
+              death_stats[_currentIndex],
+              deathBg,
+              context,
+            )
+          ],
+        )
       ],
     );
   }
