@@ -9,14 +9,16 @@ class MyCountryStats extends StatefulWidget {
   State<MyCountryStats> createState() => _MyCountryStatsState();
 }
 
+enum Size { big, small }
+
 class _MyCountryStatsState extends State<MyCountryStats> {
-  var stats = ['Total', 'Today', 'Yesterday'];
+  var _stats = ['Total', 'Today', 'Yesterday'];
   var _currentIndex = 0;
-  var affected_stats = [20009, 345, 897];
-  var death_stats = [87445, 9897, 1765];
-  var recovered_stats = [4323, 897, 673];
-  var active_stats = [3456, 8567, 345];
-  var serious_stats = [3534, 6454, 8364];
+  var _affectedStats = [20009, 345, 897];
+  var _deathStats = [87445, 9897, 1765];
+  var _recoveredStats = [4323, 897, 673];
+  var _activeStats = [3456, 8567, 345];
+  var _seriousStats = [3534, 6454, 8364];
 
   Widget kText(String title, int index) {
     return GestureDetector(
@@ -36,19 +38,26 @@ class _MyCountryStatsState extends State<MyCountryStats> {
     );
   }
 
-  Widget kContainerBig(
-      String title, int number, Color bgColor, BuildContext context) {
+  Widget kContainer(
+    String title,
+    int number,
+    Color bgColor,
+    BuildContext context,
+    Size size,
+  ) {
     return Padding(
-      padding: const EdgeInsets.all(6.0),
+      padding: const EdgeInsets.only(right:0),
       child: Container(
         height: 100,
-        width: MediaQuery.of(context).size.width / 2.4,
+        width: size == Size.big
+            ? MediaQuery.of(context).size.width / 2.4
+            : MediaQuery.of(context).size.width / 3.7,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: bgColor,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -56,7 +65,7 @@ class _MyCountryStatsState extends State<MyCountryStats> {
                 title,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 17
+                  fontSize: 15,
                 ),
               ),
               const SizedBox(height: 30),
@@ -84,25 +93,55 @@ class _MyCountryStatsState extends State<MyCountryStats> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            kText(stats[0], 0),
-            kText(stats[1], 1),
-            kText(stats[2], 2),
+            kText(_stats[0], 0),
+            kText(_stats[1], 1),
+            kText(_stats[2], 2),
           ],
         ),
         const SizedBox(height: 10),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            kContainerBig(
+            kContainer(
               'Affected',
-              affected_stats[_currentIndex],
+              _affectedStats[_currentIndex],
               affectedBg,
               context,
+              Size.big,
             ),
-            kContainerBig(
+            kContainer(
               'Death',
-              death_stats[_currentIndex],
+              _deathStats[_currentIndex],
               deathBg,
               context,
+              Size.big,
+            )
+          ],
+        ),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            kContainer(
+              'Recovered',
+              _recoveredStats[_currentIndex],
+              recoveredBg,
+              context,
+              Size.small,
+            ),
+            kContainer(
+              'Active',
+              _activeStats[_currentIndex],
+              activeBg,
+              context,
+              Size.small,
+            ),
+            kContainer(
+              'Serious',
+              _seriousStats[_currentIndex],
+              seriousBg,
+              context,
+              Size.small,
             )
           ],
         )
