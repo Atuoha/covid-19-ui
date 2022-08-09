@@ -47,24 +47,27 @@ class _StatisticsTypeState extends State<StatisticsType> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 50,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: btnInactiveBg.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                children: [
-                  kContainer(statsType[0], 0, context),
-                  kContainer(statsType[1], 1, context),
-                ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Container(
+              height: 50,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: btnInactiveBg.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Row(
+                  children: [
+                    kContainer(statsType[0], 0, context),
+                    kContainer(statsType[1], 1, context),
+                  ],
+                ),
               ),
             ),
           ),

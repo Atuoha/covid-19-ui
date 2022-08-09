@@ -95,63 +95,98 @@ class _GlobalStatsState extends State<GlobalStats> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            kText(_stats[0], 0),
-            kText(_stats[1], 1),
-            kText(_stats[2], 2),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            kContainer(
-              'Affected',
-              numberFormat.format(affectedStats[_currentIndex]),
-              affectedBg,
-              context,
-              Size.big,
-            ),
-            kContainer(
-              'Death',
-              numberFormat.format(deathStats[_currentIndex]),
-              deathBg,
-              context,
-              Size.big,
-            )
-          ],
-        ),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            kContainer(
-              'Recovered',
-              numberFormat.format(recoveredStats[_currentIndex]),
-              recoveredBg,
-              context,
-              Size.small,
-            ),
-            kContainer(
-              'Active',
-              numberFormat.format(activeStats[_currentIndex]),
-              activeBg,
-              context,
-              Size.small,
-            ),
-            kContainer(
-              'Serious',
-              numberFormat.format(seriousStats[_currentIndex]),
-              seriousBg,
-              context,
-              Size.small,
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  kText(_stats[0], 0),
+                  kText(_stats[1], 1),
+                  kText(_stats[2], 2),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  kContainer(
+                    'Affected',
+                    numberFormat.format(affectedStats[_currentIndex]),
+                    affectedBg,
+                    context,
+                    Size.big,
+                  ),
+                  kContainer(
+                    'Death',
+                    numberFormat.format(deathStats[_currentIndex]),
+                    deathBg,
+                    context,
+                    Size.big,
+                  )
+                ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  kContainer(
+                    'Recovered',
+                    numberFormat.format(recoveredStats[_currentIndex]),
+                    recoveredBg,
+                    context,
+                    Size.small,
+                  ),
+                  kContainer(
+                    'Active',
+                    numberFormat.format(activeStats[_currentIndex]),
+                    activeBg,
+                    context,
+                    Size.small,
+                  ),
+                  kContainer(
+                    'Serious',
+                    numberFormat.format(seriousStats[_currentIndex]),
+                    seriousBg,
+                    context,
+                    Size.small,
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
 
+        const SizedBox(height: 22),
         //DAILY NEW CASES CHART
+        Container(
+          height: MediaQuery.of(context).size.height / 3.1,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Global New Cases',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

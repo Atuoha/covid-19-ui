@@ -12,24 +12,33 @@ class StatisticsScreen extends StatelessWidget {
     return Container(
       color: primaryColor,
       constraints: const BoxConstraints.expand(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-             CustomAppBar(),
-            SizedBox(height:20),
-            Text(
-              'Statistics',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 21,
-                color:Colors.white,
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: 40.0,
             ),
-            StatisticsType()
-          ],
-        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                CustomAppBar(),
+                SizedBox(height: 20),
+                Text(
+                  'Statistics',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 21,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          StatisticsType()
+        ],
       ),
     );
   }
